@@ -32,54 +32,58 @@
 </template>
 
 <script setup lang="ts">
-  import { vcontextmenu } from '../src/vContextmenu';
-  import ContextMenu from '../src/ContextMenu.vue';
+// import { vcontextmenu } from '../src/vContextmenu';
+// import ContextMenu from '../src/ContextMenu.vue';
 
-  const vContextmenu = vcontextmenu;
+import { vcontextmenu } from '../dist/v-better-contextmenu.es.js';
+import { ContextMenu } from '../dist/v-better-contextmenu.es.js';
+import '../dist/v-better-contextmenu.css';
 
-  const handleMenuItemClick = (userData: any, action: string): void => {
-    console.log('click event triggered：', {
-      action,
-      userData,
-    });
-    switch (action) {
-      case 'view':
-        console.log(`view ${userData.userId} detail`);
-        break;
-      case 'edit':
-        console.log(`edit ${userData.userName}`);
-        break;
-      case 'delete':
-        console.log(`delete ${userData.userId}`);
-        break;
-    }
-  };
+const vContextmenu = vcontextmenu;
+
+const handleMenuItemClick = (userData: any, action: string): void => {
+  console.log('click event triggered：', {
+    action,
+    userData,
+  });
+  switch (action) {
+    case 'view':
+      console.log(`view ${userData.userId} detail`);
+      break;
+    case 'edit':
+      console.log(`edit ${userData.userName}`);
+      break;
+    case 'delete':
+      console.log(`delete ${userData.userId}`);
+      break;
+  }
+};
 </script>
 
 <style scoped>
-  .container {
-    padding: 20px;
-  }
+.container {
+  padding: 20px;
+}
 
-  .target {
-    width: 200px;
-    height: 150px;
-    border: 1px solid #ccc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f5f5f5;
-    cursor: context-menu;
-  }
+.target {
+  width: 200px;
+  height: 150px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  cursor: context-menu;
+}
 
-  .user-menu .menu-item {
-    padding: 8px 16px;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
+.user-menu .menu-item {
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
 
-  .user-menu .menu-item:hover {
-    background: #f0f0f0;
-    color: #1890ff;
-  }
+.user-menu .menu-item:hover {
+  background: #f0f0f0;
+  color: #1890ff;
+}
 </style>
