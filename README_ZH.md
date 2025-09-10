@@ -1,13 +1,13 @@
-# Vue Context Menu 插件使用文档
+# v-better-contextmenu
 
 一个轻量级的 Vue 右键菜单插件，支持自定义菜单内容和行为，易于集成到任何 Vue 项目中。
 
 ## 安装
 
 ```bash
-npm install vue-context-menu-plugin --save
+npm install v-better-contextmenu --save
 # 或
-yarn add vue-context-menu-plugin
+yarn add v-better-contextmenu
 ```
 
 ## 基本用法
@@ -17,7 +17,7 @@ yarn add vue-context-menu-plugin
 ```javascript
 import { createApp } from 'vue';
 import App from './App.vue';
-import { ContextMenu, vcontextmenu } from 'vue-context-menu-plugin';
+import { ContextMenu, vcontextmenu } from 'v-better-contextmenu';
 
 const app = createApp(App);
 app.component('ContextMenu', ContextMenu);
@@ -33,7 +33,7 @@ app.mount('#app');
 </template>
 
 <script setup>
-  import { ContextMenu, vcontextmenu } from 'vue-context-menu-plugin';
+  import { ContextMenu, vcontextmenu } from 'v-better-contextmenu';
 </script>
 ```
 
@@ -118,32 +118,32 @@ app.mount('#app');
 
 #### 绑定值选项（ContextMenuDirectiveOptions）
 
-| 属性名 | 类型                                  | 描述                                                     |
-| ------ | ------------------------------------- | -------------------------------------------------------- |
-| menuId | string                                | 必选，与对应的 ContextMenu 组件的 menuId 匹配            |
-| data   | any                                   | 可选，传递给菜单的数据                                   |
+| 属性名 | 类型                                  | 描述                                                  |
+|--------|---------------------------------------|-----------------------------------------------------|
+| menuId | string                                | 必选，与对应的 ContextMenu 组件的 menuId 匹配          |
+| data   | any                                   | 可选，传递给菜单的数据                                 |
 | onShow | (data: any, e: MouseEvent) => boolean | 可选，菜单显示前的回调，返回 true 显示菜单，false 不显示 |
 
 ### 组件：ContextMenu
 
 #### 属性（Props）
 
-| 属性名 | 类型                   | 描述                                     |
-| ------ | ---------------------- | ---------------------------------------- |
+| 属性名 | 类型                   | 描述                                   |
+|--------|------------------------|--------------------------------------|
 | menuId | string                 | 必选，菜单唯一标识，与指令的 menuId 对应 |
-| class  | string                 | 可选，自定义类名                         |
-| style  | Record<string, string> | 可选，自定义内联样式                     |
+| class  | string                 | 可选，自定义类名                        |
+| style  | Record<string, string> | 可选，自定义内联样式                    |
 
 #### 事件（Events）
 
-| 事件名     | 类型                                     | 描述                                                              |
-| ---------- | ---------------------------------------- | ----------------------------------------------------------------- |
+| 事件名     | 类型                                     | 描述                                                            |
+|------------|------------------------------------------|---------------------------------------------------------------|
 | item-click | (data: unknown, extra?: unknown) => void | 菜单项点击事件，data 为绑定的数据源，extra 为点击时传递的额外参数 |
 
 #### 插槽（Slots）
 
-| 插槽名  | 说明         | 作用域参数                                                       |
-| ------- | ------------ | ---------------------------------------------------------------- |
+| 插槽名  | 说明         | 作用域参数                                                     |
+|---------|------------|-----------------------------------------------------------|
 | default | 菜单内容插槽 | currentData: 绑定的数据；itemClick: 点击处理函数，可传递额外参数 |
 
 ## 样式定制
